@@ -1,14 +1,19 @@
 <?php
+$id = filter_input(INPUT_GET,"id");
+$nome = filter_input(INPUT_GET,"nome");
+$tel = filter_input(INPUT_GET,"telefone");
+$end = filter_input(INPUT_GET,"endereco");
 
-include('config.php');
+include ('config.php');
 
-$sqlBases = "SELECT * FROM clientes where id=".$_GET['id']." ORDER BY nome ASC";
-   $resultBases = $db_ativo->query($sqlBases)->fetchAll(PDO::FETCH_ASSOC);
-   foreach($resultBases as $baseData){
-       ?>
-    <div class='col-12'>nome:<?=$baseData['Nome']?></div>
-    <div class='col-12'>telefone: <?=$baseData['telefone']?></div>
-    <div class='col-12'>endereco: <?=$baseData['endereco']?></div>
-<?php
-}
+if($db_ativo){
+    $query = POD($db_ativo, "update clientes set nome='$nome, telefone='$tel, endereco='$end'where id='$id'";
+    if($query){
+        header("Location : index.php");
+    }else{
+         die("Error: " . POD($db_ativo));   
+    }
+ }else{
+        die("Erro: ". POD($db_ativo));
+    }
 ?>

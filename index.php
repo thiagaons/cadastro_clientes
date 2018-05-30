@@ -6,7 +6,7 @@ $tel = isset($_POST['telefone']) ? $_POST['telefone'] : '';
 $end = isset($_POST['endereco']) ? $_POST['endereco'] : '';
 if ($end):
     $db_ativo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sqlinsert = "INSERT INTO clientes (Nome,telefone,endereco) VALUES ('".$nome."','".$tel."','".$end."')";
+$sqlinsert = "INSERT INTO clientes (nome,telefone,endereco) VALUES ('".$nome."','".$tel."','".$end."')";
 $insertBases = $db_ativo->exec($sqlinsert);
 endif;
 
