@@ -41,7 +41,7 @@ $sqlBases = "SELECT * FROM clientes ORDER BY nome ASC";
    
         <?php 
           foreach($resultBases as $baseData){
-            echo " <div class='col-12'><a href = 'ver.php?id=".$baseData['id']."'>nome: ".$baseData['Nome'].'</a></div>';
+            echo " <div class='col-12'><a href = 'editar.php?id=".$baseData['id']."'>nome: ".$baseData['nome'].'</a></div>';
             echo "<div class='col-12'>telefone: ".$baseData['telefone'].'</div>';
             echo "<div class='col-12'>endereco: ".$baseData['endereco'].'</div>';
         }
