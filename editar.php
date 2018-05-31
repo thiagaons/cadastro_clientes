@@ -7,6 +7,7 @@ if (isset($_POST['botao']) && ($_POST['botao'] == "editar")) {
     // $resultado = $_POST;
 }
 
+
 if ($_GET['id']) {
     $query_select = "SELECT * FROM clientes WHERE id = '".$_GET['id']."'";
     $resultado = $db_ativo->query($query_select)->fetch(PDO::FETCH_ASSOC);
@@ -15,11 +16,12 @@ if ($_GET['id']) {
 ?>
 
 <form action="#" method="post">
-    <input type="text" name="id" value="<?=$resultado['id']?>" /><br />
+    <input type="hidden" name="id" value="<?=$resultado['id']?>" /><br />
     <input type="text" name="nome" value="<?=$resultado['nome']?>" /><br />
     <input type="text" name="telefone" value="<?=$resultado['telefone']?>" /><br />
     <input type="text" name="endereco" value="<?=$resultado['endereco']?>" /><br />
     <button type="submit" name="botao" value="editar">Editar</button>
+    <input type="button" value="Voltar" onclick="window.location.href='index.php'"> 
 </form>
 
 
